@@ -6,7 +6,7 @@ import { rest } from 'msw';
 import { render, screen, waitFor } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-test('v1 add new todo, display it in the list, then delete it', async () => {
+test('add new todo, display it in the list, then delete it', async () => {
   render(
     <QueryClientProvider client={new QueryClient()}>
       <App />
@@ -35,7 +35,7 @@ test('v1 add new todo, display it in the list, then delete it', async () => {
   });
 });
 
-test('v1 add new todo, display it in the list, then delete it', async () => {
+test('load existing todos', async () => {
   server.use(
     rest.get('*/todos', (req, res, ctx) => {
       return res(
